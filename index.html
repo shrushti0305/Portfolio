@@ -179,10 +179,10 @@
                     <span class="badge">Production</span>
                 </div>
                 <p style="color:var(--text-dim); max-width:480px; font-size:17px; font-weight:300;">
-                    A cloud-native reconciliation engine utilizing <b>PostgreSQL RLS</b> for industrial-grade financial privacy. Featuring a premium Mastercard UI.
+                    A cloud-native reconciliation engine utilizing <b>PostgreSQL RLS</b>. Built with Next.js 15 and optimized for edge performance on Vercel.
                 </p>
             </div>
-            <a href="https://shrushti0305.github.io/KhataPro/" target="_blank" class="btn-launch magnetic">LAUNCH_CASE</a>
+            <a href="https://khata-pro-lilac.vercel.app/" target="_blank" class="btn-launch magnetic">LAUNCH_APP</a>
         </div>
 
         <div class="project reveal">
@@ -212,7 +212,7 @@
     </footer>
 
     <script>
-        /* 1. Spotlight Smooth Follow */
+        // 1. Spotlight Smooth Follow
         const spotlight = document.getElementById("spotlight");
         let mX = 0, mY = 0, sX = 0, sY = 0;
 
@@ -230,7 +230,7 @@
         }
         syncSpotlight();
 
-        /* 2. Project Hover Glow Logic */
+        // 2. Project Hover Glow Logic
         document.querySelectorAll('.project').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -239,7 +239,7 @@
             });
         });
 
-        /* 3. Magnetic Logic */
+        // 3. Magnetic Logic
         document.querySelectorAll(".magnetic").forEach(btn => {
             btn.addEventListener("mousemove", e => {
                 const rect = btn.getBoundingClientRect();
@@ -256,7 +256,7 @@
             });
         });
 
-        /* 4. Intersection Observer for Reveals */
+        // 4. Intersection Observer for Reveals
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -273,25 +273,21 @@
             observer.observe(el);
         });
 
-        /* 5. Copy Email Logic with Toast Notification */
+        // 5. Copy Email Logic with Toast Notification
         function copyEmail() {
             const email = "shrushtitaur@gmail.com"; 
-            navigator.clipboard.writeText(email);
-            
-            const btn = document.getElementById('email-btn');
-            
-            // Create Toast
-            const toast = document.createElement('div');
-            toast.style.cssText = "position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#00ffd0; color:black; padding:12px 24px; border-radius:100px; font-weight:800; font-size:12px; font-family:'JetBrains Mono'; z-index:2000; box-shadow:0 10px 30px rgba(0,255,208,0.3);";
-            toast.innerText = 'EMAIL_COPIED_TO_CLIPBOARD';
-            document.body.appendChild(toast);
-            
-            btn.innerText = 'COPIED!';
-            
-            setTimeout(() => {
-                btn.innerText = 'COPY_EMAIL';
-                toast.remove();
-            }, 3000);
+            navigator.clipboard.writeText(email).then(() => {
+                const btn = document.getElementById('email-btn');
+                const toast = document.createElement('div');
+                toast.style.cssText = "position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#00ffd0; color:black; padding:12px 24px; border-radius:100px; font-weight:800; font-size:12px; font-family:'JetBrains Mono'; z-index:2000; box-shadow:0 10px 30px rgba(0,255,208,0.3);";
+                toast.innerText = 'EMAIL_COPIED_TO_CLIPBOARD';
+                document.body.appendChild(toast);
+                btn.innerText = 'COPIED!';
+                setTimeout(() => {
+                    btn.innerText = 'COPY_EMAIL';
+                    toast.remove();
+                }, 3000);
+            });
         }
     </script>
 </body>
