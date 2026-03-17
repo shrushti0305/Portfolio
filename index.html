@@ -3,292 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shrushti | Full-Stack Engineer</title>
+    <title>Shrushti | Developer</title>
     
-    <meta name="description" content="Software Engineer specializing in high-fidelity FinTech systems, Next.js 15, and Supabase.">
-    <meta property="og:title" content="Shrushti | Software Engineer">
-    <meta property="og:description" content="Architecting the next generation of financial reconciliation systems.">
-    <meta property="og:type" content="website">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg: #030303;
-            --glass: rgba(255, 255, 255, 0.02);
-            --border: rgba(255, 255, 255, 0.08);
+            --card-bg: #0a0a0a;
+            --text: #ffffff;
             --text-dim: #94a3b8;
-            --primary: #007aff;
-            --secondary: #00ffd0;
-            --accent: #ff00c8;
+            --secondary: #00ffd5;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
-        /* 1. Global Reset & Custom Cursor */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Plus Jakarta Sans", sans-serif; cursor: crosshair; }
-        html { scroll-behavior: smooth; background: var(--bg); color: white; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        * { box-sizing: border-box; }
 
-        body { 
-            overflow-x: hidden; 
-            background-image: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #030303 100%);
-            animation: fadeIn 1.5s ease;
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* 2. Interactive Mesh Background */
-        .mesh {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(at 0% 0%, rgba(0, 122, 255, 0.08) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(255, 0, 200, 0.08) 0px, transparent 50%);
-            z-index: -1; pointer-events: none;
+        section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .spotlight {
-            position: fixed; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(0, 122, 255, 0.1), transparent 70%);
-            pointer-events: none; z-index: -1; transform: translate(-50%, -50%);
-            transition: transform 0.1s ease-out;
+        h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
-        /* 3. Navigation */
-        nav {
-            position: sticky; top: 20px;
-            margin: 20px auto; width: 92%; max-width: 1100px;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 16px 28px;
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            z-index: 1000;
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--secondary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
         }
-        .logo { font-weight: 800; letter-spacing: -1px; font-size: 1.1rem; color: #fff; }
-        .status-pill {
-            font-family: "JetBrains Mono"; font-size: 10px; color: var(--secondary);
-            padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(0, 255, 208, 0.2);
-            display: flex; gap: 8px; align-items: center;
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
-        .status-pill::before { content: ""; width: 6px; height: 6px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 10px var(--secondary); }
 
-        /* 4. Hero Section */
-        .hero { max-width: 1100px; margin: auto; padding: 15vh 20px 100px; }
-        .section-tag { font-family: "JetBrains Mono"; color: var(--primary); font-size: 12px; letter-spacing: 4px; margin-bottom: 20px; display: block; }
-        
-        .hero h1 {
-            font-size: clamp(50px, 10vw, 110px); line-height: 0.85; letter-spacing: -6px; font-weight: 800;
-            background: linear-gradient(to right, #fff 20%, #666 40%, #666 60%, #fff 80%);
-            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: shine 6s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-        
-        .hero p { margin-top: 35px; color: var(--text-dim); font-size: 20px; max-width: 600px; font-weight: 300; line-height: 1.6; }
-        .hero-buttons { margin-top: 50px; display: flex; gap: 20px; }
-
-        .btn-primary { background: #fff; color: #000; padding: 18px 38px; border-radius: 18px; text-decoration: none; font-weight: 700; transition: 0.4s; }
-        .btn-secondary { border: 1px solid var(--border); padding: 18px 38px; border-radius: 18px; text-decoration: none; color: white; transition: 0.4s; }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255,255,255,0.1); }
-
-        /* 5. Bento Grid */
-        .grid { max-width: 1100px; margin: auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .card {
-            background: var(--glass); border: 1px solid var(--border); border-radius: 32px; padding: 40px; 
-            backdrop-filter: blur(10px); transition: 0.5s cubic-bezier(0.2, 1, 0.2, 1);
-        }
-        .card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); transform: translateY(-10px); }
-
-        /* 6. Projects Section */
-        .projects { max-width: 1100px; margin: 150px auto; padding: 0 20px; }
         .project {
-            position: relative; padding: 45px; border-radius: 40px; background: var(--glass);
-            border: 1px solid var(--border); backdrop-filter: blur(15px) saturate(160%);
-            transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); margin-bottom: 30px;
-            display: flex; justify-content: space-between; align-items: center; overflow: hidden;
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .project::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
-            z-index: 0; pointer-events: none;
-        }
-        .project:hover { transform: scale(1.02); border-color: var(--secondary); }
 
-        .project-info h3 { font-size: 32px; letter-spacing: -1px; margin-bottom: 10px; }
-        .badge { background: rgba(0, 255, 208, 0.1); color: var(--secondary); padding: 4px 12px; border-radius: 6px; font-family: "JetBrains Mono"; font-size: 10px; font-weight: 800; border: 1px solid rgba(0, 255, 208, 0.2); text-transform: uppercase; vertical-align: middle; margin-left: 10px; }
+        .project:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+            background: rgba(0, 255, 213, 0.02);
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .badge {
+            background: rgba(0,255,213,0.1);
+            padding: 4px 10px;
+            margin-left: 10px;
+            font-size: 10px;
+            border-radius: 5px;
+            color: var(--secondary);
+            border: 1px solid rgba(0,255,213,0.2);
+        }
+
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+        }
 
         .btn-launch {
-            background: white; color: black; padding: 16px 32px; border-radius: 100px;
-            text-decoration: none; font-weight: 700; font-size: 13px; z-index: 2; transition: 0.3s;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            background: var(--secondary);
+            color: black;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+            text-align: center;
         }
-        .btn-launch:hover { background: var(--secondary); transform: scale(1.1) rotate(-2deg); box-shadow: 0 0 30px var(--secondary); }
 
-        /* 7. Footer */
-        footer { max-width: 1100px; margin: 150px auto 60px; padding: 40px 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--text-dim); }
-        .socials a { color: white; text-decoration: none; margin-right: 25px; font-weight: 600; font-size: 14px; transition: 0.3s; }
-        .socials a:hover { color: var(--primary); }
+        .btn-launch:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 213, 0.2);
+        }
+
+        .btn-git {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .btn-git:hover {
+            border-color: var(--secondary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+
+        footer {
+            padding: 60px 10%;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+
+        a.contact-link {
+            color: var(--secondary);
+            text-decoration: none;
+        }
 
         @media(max-width: 768px) {
-            .project { flex-direction: column; text-align: center; gap: 30px; }
-            .hero h1 { font-size: 60px; }
-            .hero-buttons { flex-direction: column; }
+            section { padding: 50px 8%; }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="mesh"></div>
-    <div class="spotlight" id="spotlight"></div>
+<section id="hero">
+    <span class="section-tag">FULL-STACK DEVELOPER</span>
+    <h1>I Build Clean & Practical Web Applications.</h1>
+    <p style="max-width:600px; color:var(--text-dim); font-size: 18px;">
+        Aspiring software developer based in Pune, specialized in building 
+        responsive, user-centric interfaces and financial tracking tools.
+    </p>
+</section>
 
-    <nav>
-        <div class="logo">SHRUSHTI // 2026</div>
-        <div class="status-pill">SYSTEMS OPERATIONAL</div>
-    </nav>
-
-    <section class="hero">
-        <span class="section-tag">FULL-STACK ARCHITECT</span>
-        <h1>Building<br>Digital Luxury.</h1>
-        <p>Software Engineer architecting high-fidelity FinTech systems and resilient digital infrastructures using the Next.js 15 ecosystem.</p>
-        <div class="hero-buttons">
-            <a href="#projects" class="btn-primary magnetic">DEPLOYED_WORK</a>
-            <a href="javascript:void(0)" onclick="copyEmail()" class="btn-secondary magnetic" id="email-btn">COPY_EMAIL</a>
-        </div>
-    </section>
-
-    <section class="grid">
-        <div class="card">
-            <h3 style="margin-bottom:15px">Architecture</h3>
-            <p style="color:var(--text-dim); font-size: 15px;">Focusing on modular, scalable frontend logic and cloud-native systems with zero-latency goals.</p>
-        </div>
-        <div class="card">
-            <h3 style="margin-bottom:15px">The Stack</h3>
-            <p style="color:var(--secondary); font-family:'JetBrains Mono'; font-size:12px; letter-spacing:2px">
-                NEXT.JS 15 • TYPESCRIPT • SUPABASE • POSTGRES • TAILWIND • GIT
-            </p>
-        </div>
-    </section>
-
-    <section class="projects" id="projects">
-        <span class="section-tag">SELECTED_ARTIFACTS</span>
-
-        <div class="project reveal" id="khata">
-            <div class="project-info">
-                <div style="display:flex; align-items:center; margin-bottom:10px;">
-                    <h3>Khata.Pro</h3>
-                    <span class="badge">Production</span>
-                </div>
-                <p style="color:var(--text-dim); max-width:480px; font-size:17px; font-weight:300;">
-                    A cloud-native reconciliation engine utilizing <b>PostgreSQL RLS</b>. Built with Next.js 15 and optimized for edge performance on Vercel.
+<section id="projects">
+    <span class="section-tag">FEATURED WORK</span>
+    <div class="project-grid">
+        <div class="project">
+            <div>
+                <h3>Khata.Pro <span class="badge">Live</span></h3>
+                <p style="color:var(--text-dim); margin-bottom: 20px;">
+                    Next-gen expense tracking app for transaction monitoring. Optimized for speed and security.
+                </p>
+                <p style="font-family:'JetBrains Mono'; font-size:11px; color:var(--secondary); letter-spacing: 1px;">
+                    HTML • CSS • JS • VERCEL
                 </p>
             </div>
-            <a href="https://khata-pro-lilac.vercel.app/" target="_blank" class="btn-launch magnetic">LAUNCH_APP</a>
+            <div class="btn-group">
+                <a href="https://khata-pro-lilac.vercel.app/" target="_blank" class="btn-launch">Live Demo</a>
+                <a href="https://github.com/shrushti0305" target="_blank" class="btn-launch btn-git">GitHub</a>
+            </div>
         </div>
 
-        <div class="project reveal">
-            <div class="project-info">
+        <div class="project">
+            <div>
                 <h3>TravelSphere</h3>
-                <p style="color:var(--text-dim)">Global Booking Engine UI Study</p>
+                <p style="color:var(--text-dim); margin-bottom: 20px;">
+                    Destination discovery platform with a focus on responsive UI/UX and visual storytelling.
+                </p>
+                <p style="font-family:'JetBrains Mono'; font-size:11px; color:var(--secondary); letter-spacing: 1px;">
+                    HTML • CSS • JAVASCRIPT
+                </p>
             </div>
-            <a href="https://shrushti0305.github.io/TravelSphereee/" target="_blank" class="btn-launch magnetic">EXPLORE_UI</a>
-        </div>
-
-        <div class="project reveal">
-            <div class="project-info">
-                <h3>Mockzy AI</h3>
-                <p style="color:var(--text-dim)">Intelligent Assessment System</p>
+            <div class="btn-group">
+                <a href="https://shrushti0305.github.io/TravelSphereee/" target="_blank" class="btn-launch">Live Demo</a>
+                <a href="https://github.com/shrushti0305" target="_blank" class="btn-launch btn-git">GitHub</a>
             </div>
-            <a href="https://shrushti0305.github.io/MockzyWithShrushti/" target="_blank" class="btn-launch magnetic">VIEW_CASE</a>
         </div>
-    </section>
 
-    <footer id="footer">
-        <div class="socials">
-            <a href="https://github.com/shrushti0305" target="_blank">GITHUB</a>
-            <a href="https://www.linkedin.com/in/shrushti-taur-67b03933a" target="_blank">LINKEDIN</a>
-            <a href="mailto:shrushtitaur@gmail.com">EMAIL</a>
+        <div class="project">
+            <div>
+                <h3>Mockzy</h3>
+                <p style="color:var(--text-dim); margin-bottom: 20px;">
+                    Dynamic assessment tool featuring timers, score logic, and JSON-based question banks.
+                </p>
+                <p style="font-family:'JetBrains Mono'; font-size:11px; color:var(--secondary); letter-spacing: 1px;">
+                    HTML • CSS • JS • JSON
+                </p>
+            </div>
+            <div class="btn-group">
+                <a href="https://shrushti0305.github.io/MockzyWithShrushti/" target="_blank" class="btn-launch">Live Demo</a>
+                <a href="https://github.com/shrushti0305" target="_blank" class="btn-launch btn-git">GitHub</a>
+            </div>
         </div>
-        <div style="font-family: 'JetBrains Mono'; font-size: 11px;">© 2026 SHRUSHTI — PUNE, IN</div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // 1. Spotlight Smooth Follow
-        const spotlight = document.getElementById("spotlight");
-        let mX = 0, mY = 0, sX = 0, sY = 0;
+<section id="skills">
+    <span class="section-tag">TECHNICAL STACK</span>
+    <div class="skills-list">
+        <span class="skill-tag">HTML5 / CSS3</span>
+        <span class="skill-tag">JavaScript (ES6+)</span>
+        <span class="skill-tag">Responsive Web Design</span>
+        <span class="skill-tag">JSON Data Structures</span>
+        <span class="skill-tag">Vercel & Git</span>
+        <span class="skill-tag">UI/UX Basics</span>
+    </div>
+</section>
 
-        document.addEventListener("mousemove", e => { 
-            mX = e.clientX; 
-            mY = e.clientY; 
-        });
+<footer>
+    <span class="section-tag" style="margin-bottom: 20px;">CONTACT</span>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+        <div>
+            Email<br>
+            <a href="mailto:shrushtitaur@gmail.com" class="contact-link">shrushtitaur@gmail.com</a>
+        </div>
+        <div>
+            LinkedIn<br>
+            <a href="https://www.linkedin.com/in/shrushti-taur-67b03933a" target="_blank" class="contact-link">shrushti-taur</a>
+        </div>
+        <div>
+            GitHub<br>
+            <a href="https://github.com/shrushti0305" target="_blank" class="contact-link">@shrushti0305</a>
+        </div>
+    </div>
+    <p style="margin-top: 50px; font-size: 11px;">© 2026 Shrushti. Built in Pune, IN.</p>
+</footer>
 
-        function syncSpotlight() {
-            sX += (mX - sX) * 0.08;
-            sY += (mY - sY) * 0.08;
-            spotlight.style.left = sX + "px";
-            spotlight.style.top = sY + "px";
-            requestAnimationFrame(syncSpotlight);
-        }
-        syncSpotlight();
-
-        // 2. Project Hover Glow Logic
-        document.querySelectorAll('.project').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-            });
-        });
-
-        // 3. Magnetic Logic
-        document.querySelectorAll(".magnetic").forEach(btn => {
-            btn.addEventListener("mousemove", e => {
-                const rect = btn.getBoundingClientRect();
-                const x = (e.clientX - rect.left - rect.width / 2) * 0.4;
-                const y = (e.clientY - rect.top - rect.height / 2) * 0.4;
-                btn.style.transform = `translate(${x}px, ${y}px)`;
-            });
-            btn.addEventListener("mouseleave", () => {
-                btn.style.transform = "translate(0px, 0px)";
-                btn.style.transition = "transform 0.5s cubic-bezier(0.2, 1, 0.2, 1)";
-            });
-            btn.addEventListener("mouseenter", () => {
-                btn.style.transition = "none";
-            });
-        });
-
-        // 4. Intersection Observer for Reveals
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll(".reveal").forEach(el => {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(30px)";
-            el.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
-            observer.observe(el);
-        });
-
-        // 5. Copy Email Logic with Toast Notification
-        function copyEmail() {
-            const email = "shrushtitaur@gmail.com"; 
-            navigator.clipboard.writeText(email).then(() => {
-                const btn = document.getElementById('email-btn');
-                const toast = document.createElement('div');
-                toast.style.cssText = "position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#00ffd0; color:black; padding:12px 24px; border-radius:100px; font-weight:800; font-size:12px; font-family:'JetBrains Mono'; z-index:2000; box-shadow:0 10px 30px rgba(0,255,208,0.3);";
-                toast.innerText = 'EMAIL_COPIED_TO_CLIPBOARD';
-                document.body.appendChild(toast);
-                btn.innerText = 'COPIED!';
-                setTimeout(() => {
-                    btn.innerText = 'COPY_EMAIL';
-                    toast.remove();
-                }, 3000);
-            });
-        }
-    </script>
 </body>
 </html>
