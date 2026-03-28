@@ -17,7 +17,7 @@
             --border: rgba(255, 255, 255, 0.08);
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             margin: 0;
@@ -107,6 +107,7 @@
             font-size: 13px;
             font-weight: 700;
             transition: 0.3s;
+            flex: 1;
             text-align: center;
         }
 
@@ -125,11 +126,26 @@
             border-color: var(--secondary);
         }
 
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
         .skills-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 20px;
         }
 
         .skill-tag {
@@ -137,8 +153,15 @@
             border: 1px solid var(--border);
             padding: 8px 16px;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-dim);
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--secondary);
+            color: white;
+            transform: scale(1.05);
         }
 
         footer {
@@ -166,7 +189,7 @@
     <h1>I Build Clean & Practical Web Applications.</h1>
     <p style="max-width:600px; color:var(--text-dim); font-size: 18px;">
         Aspiring software developer based in Pune, specialized in building 
-        responsive, user-centric interfaces and financial tracking tools.
+        responsive, user-centric interfaces and real-time data utilities.
     </p>
 </section>
 
@@ -175,9 +198,25 @@
     <div class="project-grid">
         <div class="project">
             <div>
+                <h3>Climate Analyser <span class="badge">New</span></h3>
+                <p style="color:var(--text-dim); margin-bottom: 20px;">
+                    Python-powered desktop app with multi-threaded API fetching and custom "Vibe Logic" for weather insights.
+                </p>
+                <p style="font-family:'JetBrains Mono'; font-size:11px; color:var(--secondary); letter-spacing: 1px;">
+                    PYTHON • REST API • THREADING • TKINTER
+                </p>
+            </div>
+            <div class="btn-group">
+                <a href="https://shrushti0305.github.io/Climate-Analyser/" target="_blank" class="btn-launch">Showcase</a>
+                <a href="https://github.com/shrushti0305/Climate-Analyser" target="_blank" class="btn-launch btn-git">GitHub</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <div>
                 <h3>Khata.Pro <span class="badge">Live</span></h3>
                 <p style="color:var(--text-dim); margin-bottom: 20px;">
-                    Next-gen expense tracking app for transaction monitoring. Optimized for speed and security.
+                    Modern expense tracking platform optimized for transaction management and financial clarity.
                 </p>
                 <p style="font-family:'JetBrains Mono'; font-size:11px; color:var(--secondary); letter-spacing: 1px;">
                     HTML • CSS • JS • VERCEL
@@ -191,25 +230,9 @@
 
         <div class="project">
             <div>
-                <h3>TravelSphere</h3>
-                <p style="color:var(--text-dim); margin-bottom: 20px;">
-                    Destination discovery platform with a focus on responsive UI/UX and visual storytelling.
-                </p>
-                <p style="font-family:'JetBrains Mono'; font-size:11px; color:var(--secondary); letter-spacing: 1px;">
-                    HTML • CSS • JAVASCRIPT
-                </p>
-            </div>
-            <div class="btn-group">
-                <a href="https://shrushti0305.github.io/TravelSphereee/" target="_blank" class="btn-launch">Live Demo</a>
-                <a href="https://github.com/shrushti0305" target="_blank" class="btn-launch btn-git">GitHub</a>
-            </div>
-        </div>
-
-        <div class="project">
-            <div>
                 <h3>Mockzy</h3>
                 <p style="color:var(--text-dim); margin-bottom: 20px;">
-                    Dynamic assessment tool featuring timers, score logic, and JSON-based question banks.
+                    Dynamic assessment engine featuring timers, score tracking, and automated JSON question handling.
                 </p>
                 <p style="font-family:'JetBrains Mono'; font-size:11px; color:var(--secondary); letter-spacing: 1px;">
                     HTML • CSS • JS • JSON
@@ -225,13 +248,39 @@
 
 <section id="skills">
     <span class="section-tag">TECHNICAL STACK</span>
-    <div class="skills-list">
-        <span class="skill-tag">HTML5 / CSS3</span>
-        <span class="skill-tag">JavaScript (ES6+)</span>
-        <span class="skill-tag">Responsive Web Design</span>
-        <span class="skill-tag">JSON Data Structures</span>
-        <span class="skill-tag">Vercel & Git</span>
-        <span class="skill-tag">UI/UX Basics</span>
+    <div class="skills-container">
+        <!-- Frontend -->
+        <div class="skill-category">
+            <h4>FRONTEND</h4>
+            <div class="skills-list">
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">UI/UX Design</span>
+            </div>
+        </div>
+
+        <!-- Programming & Backend -->
+        <div class="skill-category">
+            <h4>LANGUAGES & BACKEND</h4>
+            <div class="skills-list">
+                <span class="skill-tag">Python (Core)</span>
+                <span class="skill-tag">Asynchronous Programming</span>
+                <span class="skill-tag">JSON Data Structures</span>
+                <span class="skill-tag">REST API Integration</span>
+            </div>
+        </div>
+
+        <!-- Cloud & Tools -->
+        <div class="skill-category">
+            <h4>CLOUD & TOOLS</h4>
+            <div class="skills-list">
+                <span class="skill-tag">Git / GitHub</span>
+                <span class="skill-tag">AWS Basics</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">Vercel Deployment</span>
+            </div>
+        </div>
     </div>
 </section>
 
